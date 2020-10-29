@@ -1,48 +1,35 @@
 # Udagram Image Filtering Microservice
 
-Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
+## Development Branch
 
-The project is split into three parts:
-1. [The Simple Frontend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-frontend)
-A basic Ionic client web application which consumes the RestAPI Backend. [Covered in the course]
-2. [The RestAPI Backend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-restapi), a Node-Express server which can be deployed to a cloud service. [Covered in the course]
-3. [The Image Filtering Microservice](https://github.com/udacity/cloud-developer/tree/master/course-02/project/image-filter-starter-code), the final project for the course. It is a Node-Express application which runs a simple script to process images. [Your assignment]
+    f-filter
 
-## Tasks
+## Run locally
 
-### Setup Node Environment
+    npm run dev
 
-You'll need to create a new node server. Open a new terminal within the project directory and run:
+## Build command
 
-1. Initialize a new project: `npm i`
-2. run the development server with `npm run dev`
+    npm run build
 
-### Create a new endpoint in the server.ts file
+## Deployed to ELB
+Deployed to Elasticbeanstalk using following steps:
 
-The starter code has a task for you to complete an endpoint in `./src/server.ts` which uses query parameter to download an image from a public URL, filter the image, and return the result.
+Initialised and created elb environment
 
-We've included a few helper functions to handle some of these concepts and we're importing it for you at the top of the `./src/server.ts`  file.
+    elb init
 
-```typescript
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
-```
+    elb create
 
-### Deploying your system
+Added to .elasticbeanstalk/config.yml
 
-Follow the process described in the course to `eb init` a new application and `eb create` a new environment to deploy your image-filter service! Don't forget you can use `eb deploy` to push changes.
+    deploy:
+        artifact: ./www/Archive.zip
 
-## Stand Out (Optional)
+Deployed
 
-### Refactor the course RESTapi
+    elb deploy
 
-If you're feeling up to it, refactor the course RESTapi to make a request to your newly provisioned image server.
+Endpoint URL: http://image-filter-dev.ap-southeast-2.elasticbeanstalk.com/filteredimage?image_url={{url}}
 
-### Authentication
-
-Prevent requests without valid authentication headers.
-> !!NOTE if you choose to submit this, make sure to add the token to the postman collection and export the postman collection file to your submission so we can review!
-
-### Custom Domain Name
-
-Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
-> !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
+Working example: http://image-filter-dev.ap-southeast-2.elasticbeanstalk.com/filteredimage?image_url=https://cnet3.cbsistatic.com/img/zAmm1HM_kG-FjQa5YPMShKiM8_I=/2018/04/25/0c1edd36-e90b-42bc-abc6-e8fcfc2395a9/iron-man-2.jpg
