@@ -35,4 +35,4 @@ Endpoint URL: http://image-filter-dev.ap-southeast-2.elasticbeanstalk.com/filter
 Working example: http://image-filter-dev.ap-southeast-2.elasticbeanstalk.com/filteredimage?image_url=https://cnet3.cbsistatic.com/img/zAmm1HM_kG-FjQa5YPMShKiM8_I=/2018/04/25/0c1edd36-e90b-42bc-abc6-e8fcfc2395a9/iron-man-2.jpg
 
 # Screenshot
-ELB dashboard running ELB instance -> image-filter-elb-screenshot.png
+[![ELB dashboard running ELB instance](https://github.com/andrewmooney/cloud-developer/blob/master/course-02/project/image-filter-starter-code/deployment_screenshots/image-filter-elb-screenshot.png)](https://github.com/andrewmooney/cloud-developer/blob/master/course-02/project/image-filter-starter-code/deployment_screenshots/image-filter-elb-screenshot.png)
